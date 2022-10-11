@@ -1,4 +1,5 @@
-public class ExtentReportListener implements IReporter{
+public class ExtentReportListener implements IReporter
+{
 private ExtentReports extent;
 public void generateReport(List<XmlSuite> xmlSuites,List<ISuite> suites,String outputDirectory)
 {
