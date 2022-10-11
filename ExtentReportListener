@@ -1,0 +1,19 @@
+public class ExtentReportListener implements IReporter{
+private ExtentReports extent;
+public void generateReport(List<XmlSuite> xmlSuites,List<ISuite> suites,String outputDirectory)
+{
+extent=new ExtentReports(outputDirectory + File.seperator+"Extent.html",true);
+for(Isuite suite:suites)
+{
+Map<String, ISuiteResult> result =suite.getResults();
+for(IsuiteResult r : result.values())
+{
+ITestContext context =r.getTestContext();
+buildTestNodes(context.getPassedTests(), logStatus.Pass);
+buildTestNodes(context.getPassedTests(), logStatus.Fail);
+buildTestNodes(context.getPassedTests(), logStatus.SKIP);
+}
+}
+extent.flush();
+extent.flush();
+}
